@@ -15,6 +15,8 @@ The vision for this project is to create the Assignment Manager web app that we 
 5. "As a student, I want to easily see the grades of my classes anytime during the semester so that I won't have the need to calculate them myself nor need to wait for the class to finish in order to get my grade."
 6. "As a student, I want to be able to adjust weights of different tasks for a class so that I can adapt my grade calculating to unexpected changes if there happens to be one."
 
+[Issues Page](https://github.com/software-students-spring2024/2-web-app-exercise-wae_team/issues)
+
 ## Task boards
 
-[https://github.com/orgs/software-students-spring2024/projects/1/views/1]
+[Task Boards Page](https://github.com/orgs/software-students-spring2024/projects/1/views/1)
