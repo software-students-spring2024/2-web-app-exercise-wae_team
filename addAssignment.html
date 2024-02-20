@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Assignment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+        
+        body, html {
+          height: 100%;
+          line-height: 1.8;
+        }
+        
+        
+        .w3-bar .w3-button {
+          padding: 16px;
+        }
+
+        label {
+            font-family: sans-serif;
+            font-size: 1rem;
+            padding-right: 10px;
+        }
+
+        select {
+            font-size: 0.9rem;
+            padding: 2px 5px;
+        }
+        form {
+            margin: 0 auto;
+            width: 70%;
+            padding: 5px;
+        }
+        </style>
+        </head>
+
+
+
+<body>
+    
+        <div class="w3-bar w3-white" id="myNavbar">
+          <a href="home.html" class="w3-bar-item w3-button ">Home</a>
+          <!-- Right-sided navbar links -->
+          <div class="w3-right w3-hide-small">
+            <a href="calendar.html" class="w3-bar-item w3-button">Calendar</a>
+            <a href="classes.html" class="w3-bar-item w3-button"> Classes</a>
+          </div>
+          <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+      
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      
+
+
+
+
+    <form action="addAssignment.php" method="post">
+        <label for="assignmentName">Assignment Name:</label> 
+        <input type="text" id="assignmentName" name="aname" placeholder="Assignment Name"> <br>
+
+        <label for="class-select">Class:</label> 
+        <select name="class" id="class-select">
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+          </select> <br>
+          
+          <label for="type-select">Assignment Type:</label> 
+          <select name="type" id="type-select">
+            <option value="">--Please choose an option--</option>
+            <option value="homework">Homework</option>
+            <option value="quiz">Quiz</option>
+            <option value="test">Test</option>
+            <option value="paper">Paper</option>
+            <option value="reading">Reading</option>
+            <option value="other">other</option>
+          </select><br>
+
+        <label for="dueDate">Due Date:</label> 
+        <input type="date" id="dueDate" name="ddate" placeholder=""> <br>
+
+        <label for="status-select">Status:</label> 
+        <select name="status" id="status-select">
+          <option value="">--Please choose an option--</option>
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+        </select> <br>
+
+        <label for="reminderDate">Set Reminder:</label> 
+        <input type="date" id="reminderDate" name="rdate" placeholder=""> <br>
+
+        <label for="weight">Weight:</label> 
+        <input type="int" id="weight" name="weight" placeholder="Weight"> <br>
+
+        <label for="notes">Notes:</label> 
+        <input type="text" id="notes" name="notes" placeholder="notes..."> <br>
+
+        <button type="submit">Add Assignment</button>
+    </form>
+</body>
+</html>
