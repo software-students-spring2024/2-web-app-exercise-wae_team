@@ -1,0 +1,31 @@
+HTML/CSS:
+  -import all information correctly and display classes and assignments using foreach
+  -create a working scrollable calendar w highlighted days
+  -adjust style of pages and create unified theme
+  -add hamberger menu button
+  -figure out view that shows no done assignments
+  -and a view where grades can be added to done assignments
+
+Flask:
+  -get/post methods for the pages 
+
+MongoDB:
+  Class{
+    text className (required),
+    int weightHomework
+    int weightMidterm,
+    int weighFinal,
+    int weightOther,
+    text notes
+  }
+
+  Assignment{
+    text assignmentName (required),
+    Class class (required),
+    text assignmentType (required),
+    text status (required),
+    date due (required),
+    date reminder,
+    int weight,
+    text notes
+  }
