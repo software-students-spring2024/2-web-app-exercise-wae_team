@@ -42,12 +42,12 @@
   <body style="overscroll-behavior-x: auto;">
 
     <div class="w3-bar w3-white" id="myNavbar">
-      <a href="home.html" class="w3-bar-item w3-button ">Home</a>
+      <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
-        <a href="calendar.html" class="w3-bar-item w3-button">Calendar</a>
-        <a href="classes.html" class="w3-bar-item w3-button"> Classes</a>
-        <a href="addAssignment.html" class="w3-bar-item w3-button"> Add Assignment</a>
+        <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
+        <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button"> Classes</a>
+        <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
 
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -57,13 +57,13 @@
       </a>
     </div>
 
-    <a href="calendar.html".html">
+    <a href="{{ url_for('calendar') }}".html">
         <button> Calendar</button>
     </a>
-    <a href="classes.html">
+    <a href="{{ url_for('classes') }}">
         <button> Classes</button>
     </a>
-    <a href="addAssignment.html">
+    <a href="{{ url_for('addAssignment') }}">
         <button> Add Assignment </button>
     </a>
     
