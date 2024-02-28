@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Calendar</title>
-    <a href="home.html">
+    <a href="{{ url_for('index') }}">
         <button> Home</button>
     </a>
 </head>
@@ -84,11 +84,11 @@ body {font-family: Verdana, sans-serif;}
 <body style="overscroll-behavior-x: auto;">
 
     <div class="w3-bar w3-white" id="myNavbar">
-      <a href="home.html" class="w3-bar-item w3-button ">Home</a>
+      <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
-        <a href="classes.html" class="w3-bar-item w3-button"> Classes</a>
-        <a href="addAssignment.html" class="w3-bar-item w3-button"> Add Assignment</a>
+        <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button"> Classes</a>
+        <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
 
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
