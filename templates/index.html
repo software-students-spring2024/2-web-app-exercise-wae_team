@@ -48,6 +48,7 @@
         <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
         <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button"> Classes</a>
         <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
+        <a href="{{ url_for('addClass') }}" class="w3-bar-item w3-button"> Add Class</a> <!-- New link for Add Class -->
 
       </div>
       <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -57,11 +58,14 @@
       </a>
     </div>
 
-    <a href="{{ url_for('calendar') }}".html">
+    <a href="{{ url_for('calendar') }}">
         <button> Calendar</button>
     </a>
     <a href="{{ url_for('classes') }}">
         <button> Classes</button>
+    </a>
+    <a href="{{ url_for('addClass') }}">
+      <button> Add Class </button>
     </a>
     <a href="{{ url_for('addAssignment') }}">
         <button> Add Assignment </button>

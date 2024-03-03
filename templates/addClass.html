@@ -46,18 +46,27 @@
       <!-- Right-sided navbar links -->
       <div class="w3-right w3-hide-small">
         <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
-        <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button"> Classes</a>
+        <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button">Classes</a>
+        <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
       </div>
 
 
-    <form action="addClasses.php" method="post">
+      <form action="/submitClass" method="post">
         <label for="className">Class Name:</label><br>
-        <input type="text" id="assignmentName" name="assignmentName"><br>
-        <label for="dueDate">Due Date (MM/DD/YYYY):</label><br>
-        <input type="date" id="dueDate" name="dueDate"><br>
-        <input type="text" id="class" name="class"><br>
-        <input type="test">Notes:</label>
+        <input type="text" id="className" name="className" required><br>
+        <label for="weightHomework">Weight Homework:</label><br>
+        <input type="number" id="weightHomework" name="weightHomework"><br>
+        <label for="weightMidterm">Weight Midterm:</label><br>
+        <input type="number" id="weightMidterm" name="weightMidterm"><br>
+        <label for="weightFinal">Weight Final:</label><br>
+        <input type="number" id="weightFinal" name="weightFinal"><br>
+        <label for="weightOther">Weight Other:</label><br>
+        <input type="number" id="weightOther" name="weightOther"><br>
+        <label for="notes">Notes:</label><br>
+        <input type="text" id="notes" name="notes"><br>
         <input type="submit" value="Submit">
+      </form>
+    </div>
         
 </body>
 </html>
