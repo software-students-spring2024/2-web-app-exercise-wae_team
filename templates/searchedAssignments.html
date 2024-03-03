@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searched Assignments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    
+    
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+
+    label {
+        font-family: sans-serif;
+        font-size: 1rem;
+        padding-right: 10px;
+    }
+
+    select {
+        font-size: 0.9rem;
+        padding: 2px 5px;
+    }
+    form {
+        margin: 0 auto;
+        width: 70%;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body style="overscroll-behavior-x: auto;">
+
+    <div class="w3-bar w3-white" id="myNavbar">
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+            <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
+            <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button">Classes</a>
+            <a href="{{ url_for('addClass') }}" class="w3-bar-item w3-button"> Add Class</a>
+            <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
+        </div>
+    </div>
+
+    <div class="w3-container">
+      <h1>Searched Assignments</h1>
+      <form action="{{ url_for('search_assignments') }}" method="post">
+          <label for="search_assignment">Search Assignment:</label>
+          <input type="text" id="search_assignment" name="search_assignment" placeholder="Enter assignment name...">
+          <button type="submit">Search</button>
+      </form>
+      
+      <ul>
+          {% for assignment in searched_assignments %}
+              <li><a href="{{ url_for('assignment_details', assignment_id=assignment._id) }}">{{ assignment.assignmentName }}</a></li>
+          {% endfor %}
+      </ul>
+      
+      <button onclick="goBack()">Go Back</button>
+        
+    </div>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    
+</body>
+</html>
