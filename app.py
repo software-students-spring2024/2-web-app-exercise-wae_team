@@ -1,11 +1,15 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # MongoDB configuration
-client = MongoClient('mongodb://localhost:27017/')
-db = client['WebApp']
+client = MongoClient(os.getenv('MONGODB_URI'))
+db = client.get_default_database()  # Get default database from the connection string
 class_collection = db['Class']
 assignment_collection = db['Assignment']
 
