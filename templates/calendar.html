@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calendar</title>
-    <a href="{{ url_for('index') }}">
-        <button> Home</button>
-    </a>
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
@@ -81,23 +78,36 @@ body {font-family: Verdana, sans-serif;}
   color: white !important
 }
 </style>
-<body style="overscroll-behavior-x: auto;">
+</head>
 
-    <div class="w3-bar w3-white" id="myNavbar">
-      <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
-      <!-- Right-sided navbar links -->
-      <div class="w3-right w3-hide-small">
-        <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
-        <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button">Classes</a>
-        <a href="{{ url_for('addClass') }}" class="w3-bar-item w3-button"> Add Class</a>
-        <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
-      </div>
-      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-  
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a>
+<body>
+    <div class="topnav">
+
+    <div class="topnav">        
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
+        <!-- Right-sided navbar links -->
+        <div id="myLinks">
+            <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
+            <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button">Classes</a>
+            <a href="{{ url_for('addClass') }}" class="w3-bar-item w3-button"> Add Class</a>
+            <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
     </div>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
 
 
     <div class="months">
