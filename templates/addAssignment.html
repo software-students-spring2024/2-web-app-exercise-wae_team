@@ -95,7 +95,7 @@
         <select name="class" id="class-select">
             <option value="">--Please choose an option--</option>
             {% for class in classes %}
-            <option value="{{ class.className }}">Class</option>
+            <option value="{{ class.className }}">{{ class.className }}</option>
             {% endfor %}
         </select> <br>
         
