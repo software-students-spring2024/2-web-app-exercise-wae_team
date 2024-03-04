@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+    
+    
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+
+    label {
+        font-family: sans-serif;
+        font-size: 1rem;
+        padding-right: 10px;
+    }
+
+    select {
+        font-size: 0.9rem;
+        padding: 2px 5px;
+    }
+    form {
+        margin: 0 auto;
+        width: 70%;
+        padding: 5px;
+    }
+    </style>
+</head>
+
+<body style="overscroll-behavior-x: auto;">
+
+    <div class="w3-bar w3-white" id="myNavbar">
+        <a href="{{ url_for('index') }}" class="w3-bar-item w3-button ">Home</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+            <a href="{{ url_for('calendar') }}" class="w3-bar-item w3-button">Calendar</a>
+            <a href="{{ url_for('classes') }}" class="w3-bar-item w3-button">Classes</a>
+            <a href="{{ url_for('addClass') }}" class="w3-bar-item w3-button"> Add Class</a>
+            <a href="{{ url_for('addAssignment') }}" class="w3-bar-item w3-button"> Add Assignment</a>
+        </div>
+    </div>
+
+    <div class="w3-container">
+        <form action="{{ url_for('update_assignment', assignment_id=assignment_details._id) }}" method="post">
+            <label for="assignmentName">Assignment Name:</label> 
+            <input type="text" id="assignmentName" name="assignmentName" value="{{ assignment_details.assignmentName }}"> <br>
+
+            <label for="class">Class:</label> 
+            <input type="text" id="class" name="class" value="{{ assignment_details.class }}"> <br>
+
+            <label for="assignmentType">Assignment Type:</label> 
+            <input type="text" id="assignmentType" name="assignmentType" value="{{ assignment_details.assignmentType }}"><br>
+
+            <label for="status">Status:</label> 
+            <input type="text" id="status" name="status" value="{{ assignment_details.status }}"> <br>
+
+            <label for="dueDate">Due Date:</label> 
+            <input type="date" id="dueDate" name="dueDate" value="{{ assignment_details.due }}"> <br>
+
+            <label for="reminderDate">Reminder Date:</label> 
+            <input type="date" id="reminderDate" name="reminderDate" value="{{ assignment_details.reminder }}"> <br>
+
+            <label for="weight">Weight:</label> 
+            <input type="text" id="weight" name="weight" value="{{ assignment_details.weight }}"> <br>
+
+            <label for="notes">Notes:</label> 
+            <input type="text" id="notes" name="notes" value="{{ assignment_details.notes }}"> <br>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <form action="{{ url_for('delete_assignment', assignment_id=assignment_details._id) }}" method="post">
+          <input type="submit" value="Delete">
+        </form>
+    </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ HTML/CSS:
   -adjust style of pages and create unified theme
   -add hamberger menu button
   -figure out view that shows no done assignments
-  -and a view where grades can be added to done assignments
+  -and a view where grades can be added to done assignments / assignments can be edited
 
 Flask:
   -get/post methods for the pages 

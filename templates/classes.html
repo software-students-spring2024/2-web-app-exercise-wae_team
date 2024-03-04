@@ -54,6 +54,21 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
+
+    <div class="w3-container">
+      <h1>Classes</h1>
+      <form action="{{ url_for('search_classes') }}" method="post">
+        <label for="search_class">Search Class:</label> 
+        <input type="text" id="search_class" name="search_class" placeholder="Enter class name...">
+        <button type="submit">Search</button>
+      </form>
+      
+      <ul>
+          {% for class in classes %}
+          <li><a href="{{ url_for('class_details', class_id=class._id) }}">{{ class.className }}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
     
 </body>
 </html>
