@@ -9,6 +9,8 @@ load_dotenv()
 app = Flask(__name__)
 
 # MongoDB configuration
+print(os.environ)
+print(os.getenv('MONGODB_URI'))
 client = MongoClient(os.getenv('MONGODB_URI'))
 db = client.get_default_database()  # Get default database from the connection string
 class_collection = db['Class']
