@@ -8,6 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+      .block {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 75%;
+        border: none;
+        background-color: #525151;
+        color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+      }
     body {
       font-family: Arial, Helvetica, sans-serif;
     }
@@ -89,20 +102,31 @@
         </script>
        
 
-
+       
+       
+       <p></p>
     <a href="{{ url_for('calendar') }}">
-        <button> Calendar</button>
+      <button class="block">Calendar</button>
     </a>
+    <p></p>
     <a href="{{ url_for('classes') }}">
-        <button> Classes</button>
+      <button class="block">Classes</button>
     </a>
+    <p></p>
     <a href="{{ url_for('addClass') }}">
-      <button> Add Class </button>
+      <button class="block">Add Class</button>
     </a>
+    <p></p>
     <a href="{{ url_for('addAssignment') }}">
-        <button> Add Assignment </button>
+      <button class="block">Add Assignment</button>
     </a>
+    <p></p>
     
     <h1>Upcoming</h1>
+    <ul>
+      {% for assignment in assignments %}
+          <li><a href="{{ url_for('assignment_details', assignment_id=assignment._id) }}">{{ assignment.assignmentName }}</a></li>
+      {% endfor %}
+  </ul>
   </body>
 </html>

@@ -7,76 +7,312 @@
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
-/* Month header */
-.month {
-  padding: 50px 25px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
-}
-
-/* Month list */
-.month ul {
-  margin: 0;
+.mobile-container {
+      margin: auto;
+      width: 100%;
+      background-color: #555;
+      height: 500px;
+      color: white;
+      border-radius: 10px;
+    }
+    
+    .topnav {
+      width: 100%;
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
+    }
+    
+    .topnav #myLinks {
+      display: none;
+    }
+    
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+    
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .active {
+      background-color: #04AA6D;
+      color: white;
+    }
+    * {
   padding: 0;
-}
-
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-/* Previous button inside month header */
-.month .prev {
-  float: left;
-  padding-top: 10px;
-}
-
-/* Next button */
-.month .next {
-  float: right;
-  padding-top: 10px;
-}
-
-/* Weekdays (Mon-Sun) */
-.weekdays {
   margin: 0;
-  padding: 10px 0;
-  background-color:#ddd;
+  font-family: consolas;
+  box-sizing: border-box;
 }
 
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  overflow: hidden;
 }
 
-/* Days (1-31) */
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
+.calendar {
+  height: 30rem;
+  width: max-content;
+  background-color: white;
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 35px 50px 0px 50px;
+  display: flex;
+  flex-direction: column;
 }
 
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
+.calendar {
+  box-shadow: rgba(124, 124, 196, 0.2) 0px 7px 29px 0px;
 }
 
-/* Highlight the "current" day */
-.days li .active {
+.calendar-header {
+  background: #383846;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  align-items: center;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.calendar-body {
+  padding: 10px;
+}
+
+.calendar-week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.calendar-week-days div:hover {
+  color: black;
+  transform: scale(1.2);
+  transition: all .2s ease-in-out;
+}
+
+.calendar-week-days div {
+  display: grid;
+  place-items: center;
+  color: #000000;
+  height: 50px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  color: #0A0921;
+}
+
+.calendar-days div {
+  width: 37px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5px;
-  background: #1abc9c;
-  color: white !important
+  position: relative;
+  cursor: pointer;
+  animation: to-top 1s forwards;
 }
+
+.month-picker {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.year-picker {
+  display: flex;
+  align-items: center;
+}
+
+.year-change {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.year-change:hover {
+  background-color: #535365;
+  transition: all .2s ease-in-out;
+  transform: scale(1.12);
+}
+
+.calendar-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#year:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.2 ease-in-out;
+}
+
+.calendar-days div span {
+  position: absolute;
+}
+
+.calendar-days div:hover {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  background-color: #fbc7d4;
+  border-radius: 20%;
+  color: #f8fbff;
+}
+
+.calendar-days div.current-date {
+  color: #f8fbff;
+  background-color: #9796f0;
+  border-radius: 20%;
+}
+.calendar-days div.due-date {
+  color: #f8fbff;
+  background-color: #da5b5b;
+  border-radius: 20%;
+}
+
+.month-list {
+  position: relative;
+  left: 0;
+  top: -130px;
+  background-color: #ebebeb;
+  color: #151426;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+  border-radius: 20px;
+}
+
+.month-list>div {
+  display: grid;
+  place-content: center;
+  margin: 5px 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.month-list>div>div {
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.month-list>div>div:hover {
+  background-color: #9796f0;
+  color: #f8fbff;
+  transform: scale(0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.month-list.show {
+  visibility: visible;
+  pointer-events: visible;
+  transition: 0.6s ease-in-out;
+  animation: to-left .71s forwards;
+}
+
+.month-list.hideonce {
+  visibility: hidden;
+}
+
+.month-list.hide {
+  animation: to-right 1s forwards;
+  visibility: none;
+  pointer-events: none;
+}
+
+.date-time-formate {
+  height: 4rem;
+  width: 100%;
+  font-family: Dubai Light, Century Gothic;
+  position: relative;
+  display: flex;
+  top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-text-formate {
+  font-family: Microsoft JhengHei UI;
+  font-size: 1.4rem;
+  padding-right: 5%;
+  border-right: 3px solid #9796f0;
+}
+
+.date-time-value {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding-left: 5%;
+}
+
+
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+
 </style>
 </head>
 
@@ -109,57 +345,169 @@ body {font-family: Verdana, sans-serif;}
         }
         </script>
 
-
-    <div class="months">
-        <ul>
-          <li class="prev">&#10094;</li>
-          <li class="next">&#10095;</li>
-          <li>August<br><span style="font-size:18px">2021</span></li>
-        </ul>
+<div class="contianer">
+  <div class="calendar">
+    <div class="calendar-header">
+      <span class="month-picker" id="month-picker"> May </span>
+      <div class="year-picker" id="year-picker">
+        <span class="year-change" id="pre-year">
+          <pre><</pre>
+        </span>
+        <span id="year">2020 </span>
+        <span class="year-change" id="next-year">
+          <pre>></pre>
+        </span>
       </div>
-      
-      <ul class="weekdays">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-      </ul>
-      
-      <ul class="days">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li><span class="active">10</span></li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-      </ul>
+    </div>
+
+    <div class="calendar-body">
+      <div class="calendar-week-days">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="calendar-days">
+      </div>
+    </div>
+    <div class="month-list"></div>
+  </div>
+</div>
+
+<script>
+  const isLeapYear = (year) => {
+return (
+  (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
+  (year % 100 === 0 && year % 400 === 0)
+);
+};
+const getFebDays = (year) => {
+return isLeapYear(year) ? 29 : 28;
+};
+let calendar = document.querySelector('.calendar');
+const month_names = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+let month_picker = document.querySelector('#month-picker');
+const dayTextFormate = document.querySelector('.day-text-formate');
+const dateFormate = document.querySelector('.date-formate');
+
+month_picker.onclick = () => {
+month_list.classList.remove('hideonce');
+month_list.classList.remove('hide');
+month_list.classList.add('show');
+};
+
+const generateCalendar = (month, year) => {
+let calendar_days = document.querySelector('.calendar-days');
+calendar_days.innerHTML = '';
+let calendar_header_year = document.querySelector('#year');
+let days_of_month = [
+    31,
+    getFebDays(year),
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+  ];
+
+let currentDate = new Date();
+
+month_picker.innerHTML = month_names[month];
+
+calendar_header_year.innerHTML = year;
+
+let first_day = new Date(year, month);
+
+
+for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+
+  let day = document.createElement('div');
+
+  if (i >= first_day.getDay()) {
+    day.innerHTML = i - first_day.getDay() + 1;
+
+    if (i - first_day.getDay() + 1 === currentDate.getDate() &&
+      year === currentDate.getFullYear() &&
+      month === currentDate.getMonth()
+    ) {
+      day.classList.add('current-date');
+    }
+  }
+  calendar_days.appendChild(day);
+}
+};
+
+let month_list = calendar.querySelector('.month-list');
+month_names.forEach((e, index) => {
+let month = document.createElement('div');
+month.innerHTML = `<div>${e}</div>`;
+
+month_list.append(month);
+month.onclick = () => {
+  currentMonth.value = index;
+  generateCalendar(currentMonth.value, currentYear.value);
+  month_list.classList.replace('show', 'hide');
+};
+});
+
+(function() {
+month_list.classList.add('hideonce');
+})();
+document.querySelector('#pre-year').onclick = () => {
+currentMonth.value--;
+if (currentMonth.value < 0) {
+  currentMonth.value = 11; // Wrap around to December
+  currentYear.value--;
+}
+generateCalendar(currentMonth.value, currentYear.value);
+};
+
+document.querySelector('#next-year').onclick = () => {
+currentMonth.value++;
+if (currentMonth.value > 11) {
+  currentMonth.value = 0; // Wrap around to January
+  currentYear.value++;
+}
+generateCalendar(currentMonth.value, currentYear.value);
+};
+let currentDate = new Date();
+let currentMonth = { value: currentDate.getMonth() };
+let currentYear = { value: currentDate.getFullYear() };
+generateCalendar(currentMonth.value, currentYear.value);
+
+const todayShowDate = document.querySelector('.date-formate');
+
+
+  </script>
+  <p></p>
+  <div>
+      <h1>Upcoming Assignments</h1>
+      <ul>
+        {% for assignment in assignments %}
+            <li><a href="{{ url_for('assignment_details', assignment_id=assignment._id) }}">{{ assignment.assignmentName }}</a></li>
+        {% endfor %}
+    </ul>
+  </div>
 </body>
 </html>
